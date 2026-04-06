@@ -1,5 +1,3 @@
-import { GameEmbed } from '@/components/GameEmbed';
-
 const SOCIAL = [
   { label: 'Blog', href: 'https://ultragresion.blogspot.com/', icon: '✍' },
   { label: 'SoundCloud', href: 'https://soundcloud.com/ultragresion/tracks', icon: '◎' },
@@ -31,34 +29,41 @@ export default function HomePage() {
           // COMMAND CENTER — LIVE
         </p>
 
-        <div className="w-full flex gap-4 items-stretch">
-          <GameEmbed />
-
-          {/* Social strip — desktop only */}
-          <div className="hidden md:flex flex-col items-center justify-center gap-5 pl-2">
-            {SOCIAL.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                title={s.label}
-                className="text-xs text-slate-500 hover:text-[#00F0FF] transition-colors"
-              >
-                {s.icon}
-              </a>
-            ))}
-          </div>
-        </div>
-
+        {/* Banner de bienvenida */}
         <a
           href="https://play.ultragresion.com/play"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-xs tracking-widest text-[#00F0FF] border border-[#00F0FF44] px-6 py-2 hover:border-[#00F0FF] hover:bg-[#00F0FF0D] transition-all"
+          className="w-full block group glow border border-[#00F0FF22] hover:border-[#00F0FF55] transition-all overflow-hidden rounded-sm"
         >
-          ENTRAR AL JUEGO ↗
+          <img
+            src="/brand/og_banner.png"
+            alt="Command Center"
+            className="w-full object-cover"
+            style={{ maxHeight: '60vh' }}
+          />
+          <div className="flex items-center justify-center py-3 bg-[#050505] border-t border-[#00F0FF11]">
+            <span className="text-xs tracking-widest text-[#00F0FF] group-hover:opacity-80 transition-opacity">
+              ENTRAR AL JUEGO ↗
+            </span>
+          </div>
         </a>
+
+        {/* Social strip */}
+        <div className="flex gap-6 justify-center">
+          {SOCIAL.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={s.label}
+              className="text-xs text-slate-500 hover:text-[#00F0FF] transition-colors"
+            >
+              {s.icon}
+            </a>
+          ))}
+        </div>
       </section>
 
       <div className="accent-line mt-8 mb-6" />
