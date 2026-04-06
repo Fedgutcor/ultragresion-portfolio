@@ -2,21 +2,38 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Ultragresion — About',
-  description: 'Federico Gutiérrez — AI architect, backend systems developer, game builder. Builder of autonomous agentic ecosystems, isometric games, and AI infrastructure.',
+  description: 'Federico Gutiérrez — builder of autonomous systems, isometric worlds, and creative infrastructure.',
 };
 
 const SOCIAL = [
-  { label: 'Blog', href: 'https://ultragresion.blogspot.com/' },
-  { label: 'SoundCloud', href: 'https://soundcloud.com/ultragresion/tracks' },
-  { label: 'Instagram', href: 'https://www.instagram.com/ultragresion/' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/federico-guti%C3%A9rrez-correa-0b0187144/' },
-];
-
-const STACK = [
-  'Python, TypeScript, SQLite, FastMCP',
-  'Next.js, Flask, SocketIO',
-  'Agent architecture, Clean/Hexagonal Architecture',
-  'Cloudflare, Linux, macOS',
+  {
+    label: 'Blog',
+    sub: 'Escritura y reflexiones',
+    href: 'https://ultragresion.blogspot.com/',
+    accent: '#FF6B35',
+    symbol: '✍',
+  },
+  {
+    label: 'SoundCloud',
+    sub: 'Producción musical',
+    href: 'https://soundcloud.com/ultragresion/tracks',
+    accent: '#FF5500',
+    symbol: '◎',
+  },
+  {
+    label: 'Instagram',
+    sub: 'Visuales y proceso',
+    href: 'https://www.instagram.com/ultragresion/',
+    accent: '#C13584',
+    symbol: '◈',
+  },
+  {
+    label: 'LinkedIn',
+    sub: 'Perfil profesional',
+    href: 'https://www.linkedin.com/in/federico-guti%C3%A9rrez-correa-0b0187144/',
+    accent: '#0A66C2',
+    symbol: '⬡',
+  },
 ];
 
 export default function AboutPage() {
@@ -31,24 +48,8 @@ export default function AboutPage() {
           Ultragresion
         </h1>
         <p className="text-sm text-[#00F0FF] tracking-wide opacity-80">
-          Federico Gutiérrez — AI architect · Backend developer · Sound producer
+          Federico Gutiérrez — Medellín, Colombia
         </p>
-        <p className="text-xs text-slate-500 mt-1 tracking-widest">Medellín, Colombia</p>
-      </section>
-
-      <div className="accent-line mb-10" />
-
-      {/* STACK */}
-      <section className="mb-10">
-        <p className="text-xs text-[#00F0FF] opacity-50 tracking-widest mb-4">// STACK</p>
-        <ul className="flex flex-col gap-2">
-          {STACK.map((item) => (
-            <li key={item} className="text-sm text-slate-300 flex items-start gap-3">
-              <span className="text-[#00F0FF] opacity-70 select-none">·</span>
-              {item}
-            </li>
-          ))}
-        </ul>
       </section>
 
       <div className="accent-line mb-10" />
@@ -58,13 +59,16 @@ export default function AboutPage() {
         <p className="text-xs text-[#00F0FF] opacity-50 tracking-widest mb-4">// LO QUE CONSTRUYO</p>
         <div className="flex flex-col gap-3 text-sm text-slate-300 leading-relaxed">
           <p>
-            Construyo ecosistemas autónomos. Mi proyecto central — Command Center — corre 85 agentes activos que gestionan proyectos, auditan dependencias, generan código y coordinan flujos de trabajo sin intervención humana constante.
+            Construyo ecosistemas autónomos donde la tecnología y la creatividad convergen.
+            Mi trabajo vive en la intersección de la inteligencia artificial, el diseño de sistemas
+            y la expresión personal.
           </p>
           <p>
-            También construyo juegos isométricos multijugador, donde la infraestructura de agentes y el motor de juego coexisten en el mismo sistema. Cada pieza tiene propósito técnico y estético.
+            Juegos isométricos multijugador, infraestructura de agentes, producción musical.
+            Cada pieza tiene propósito técnico y estético — ninguna existe solo por existir.
           </p>
           <p>
-            Además de eso: infraestructura de AI, pipelines de publicación personal, y producción musical. Todo conectado bajo la misma arquitectura.
+            Todo conectado bajo la misma arquitectura. Todo orientado a amplificar la capacidad humana.
           </p>
         </div>
       </section>
@@ -74,20 +78,29 @@ export default function AboutPage() {
       {/* REDES */}
       <section className="mb-10">
         <p className="text-xs text-[#00F0FF] opacity-50 tracking-widest mb-4">// REDES</p>
-        <ul className="flex flex-col gap-3">
+        <ul className="flex flex-col gap-4">
           {SOCIAL.map((s) => (
             <li key={s.label}>
               <a
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-slate-400 hover:text-[#00F0FF] transition-colors tracking-wide"
+                className="group flex items-center gap-4 p-3 border border-white/5 hover:border-white/15 transition-all"
+                style={{ ['--accent' as string]: s.accent }}
               >
-                <span className="text-slate-600 mr-2">[{s.label}]</span>
-                <span className="text-[#00F0FF] opacity-60 mr-2">→</span>
-                <span className="underline underline-offset-4 decoration-white/10 hover:decoration-[#00F0FF44]">
-                  {s.href}
+                <span
+                  className="text-xl w-8 text-center transition-colors"
+                  style={{ color: s.accent }}
+                >
+                  {s.symbol}
                 </span>
+                <div className="flex flex-col">
+                  <span className="text-sm text-white font-bold tracking-wide group-hover:text-white transition-colors">
+                    {s.label}
+                  </span>
+                  <span className="text-xs text-slate-500 mt-0.5">{s.sub}</span>
+                </div>
+                <span className="ml-auto text-xs text-slate-600 group-hover:text-slate-400 transition-colors">↗</span>
               </a>
             </li>
           ))}
@@ -100,7 +113,9 @@ export default function AboutPage() {
       <section className="mb-10">
         <p className="text-xs text-[#00F0FF] opacity-50 tracking-widest mb-4">// COMMAND CENTER</p>
         <p className="text-sm text-slate-300 leading-relaxed mb-4">
-          Command Center es mi sistema operativo personal — un ecosistema de 85 agentes autónomos que gestiona proyectos, genera código, audita dependencias y corre este juego isométrico en tiempo real.
+          Command Center es mi sistema operativo personal — un ecosistema de agentes autónomos
+          que gestiona proyectos, genera código y corre un juego isométrico en tiempo real.
+          Agencia autónoma. Innovación y creatividad.
         </p>
         <a
           href="https://play.ultragresion.com/play"

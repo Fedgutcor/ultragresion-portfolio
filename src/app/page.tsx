@@ -16,7 +16,7 @@ export default function HomePage() {
           Ultragresion
         </h1>
         <p className="text-xs text-[#00F0FF] tracking-[0.3em] mt-1 opacity-80">
-          AI architect · Game builder · Signal emitter
+          Innovación y creatividad
           <span className="blink-cursor">_</span>
         </p>
       </header>
