@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 
 const NAV_LINKS = [
   { label: 'JUEGO', href: 'https://play.ultragresion.com/play', external: true },
+  { label: 'PERSONAJES', href: '/characters', external: false },
   { label: 'BLOG', href: '/blog', external: false },
   { label: 'PROYECTOS', href: '/projects', external: false },
   { label: 'ABOUT', href: '/about', external: false },
