@@ -35,9 +35,20 @@ export default function HomePage() {
             className="flex-1 relative glow border border-[#00F0FF22] rounded-sm overflow-hidden"
             style={{ height: '70vh' }}
           >
+            {/* Fallback — shown while iframe loads or if offline */}
+            <div
+              className="absolute inset-0 flex items-center justify-center"
+              style={{
+                backgroundImage: 'url(/brand/og_banner.png)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                zIndex: 0,
+              }}
+            />
             <iframe
               src="https://play.ultragresion.com/play"
-              className="w-full h-full"
+              className="w-full h-full relative"
+              style={{ zIndex: 1 }}
               title="Command Center — Ultragresion"
               allow="fullscreen"
             />
