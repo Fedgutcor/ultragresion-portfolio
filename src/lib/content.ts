@@ -30,3 +30,18 @@ export function getAllPosts(): Post[] {
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
+
+export function getPostBySlug(slug: string): { meta: Post; content: string } | null {
+  const filePath = path.join(CONTENT_DIR, `${slug}.mdx`);
+  if (!fs.existsSync(filePath)) return null;
+  const raw = fs.readFileSync(filePath, 'utf-8');
+  const { data, content } = matter(raw);
+  return { meta: { slug, ...data } as Post, content };
+}
+
+export function getAllSlugs(): string[] {
+  if (!fs.existsSync(CONTENT_DIR)) return [];
+  return fs.readdirSync(CONTENT_DIR)
+    .filter(f => f.endsWith('.mdx'))
+    .map(f => f.replace('.mdx', ''));
+}
