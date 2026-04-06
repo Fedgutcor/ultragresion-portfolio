@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 const SOCIAL = [
   { label: 'Blog', href: 'https://ultragresion.blogspot.com/', icon: '✍' },
   { label: 'SoundCloud', href: 'https://soundcloud.com/ultragresion/tracks', icon: '◎' },
@@ -8,49 +6,62 @@ const SOCIAL = [
 ];
 
 export default function HomePage() {
+  const year = new Date().getFullYear();
+
   return (
     <main className="min-h-screen flex flex-col px-6 py-8 max-w-5xl mx-auto">
       {/* Header */}
-      <header className="flex items-start justify-between mb-8">
-        <div>
-          <h1 className="text-2xl font-bold tracking-widest text-white uppercase">
-            Ultragresion
-          </h1>
-          <p className="text-xs text-[#00F0FF] tracking-[0.3em] mt-1 opacity-80">
-            AI architect · Game builder · Signal emitter
-          </p>
-        </div>
-        <nav className="flex gap-4 items-center mt-1">
-          {SOCIAL.map(s => (
-            <a
-              key={s.label}
-              href={s.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={s.label}
-              className="text-sm text-slate-400 hover:text-[#00F0FF] transition-colors"
-            >
-              {s.icon}
-            </a>
-          ))}
-        </nav>
+      <header className="mb-8">
+        <h1 className="text-2xl font-bold tracking-widest text-white uppercase">
+          Ultragresion
+        </h1>
+        <p className="text-xs text-[#00F0FF] tracking-[0.3em] mt-1 opacity-80">
+          AI architect · Game builder · Signal emitter
+          <span className="blink-cursor">_</span>
+        </p>
       </header>
 
       <div className="accent-line mb-8" />
 
       {/* Game — centerpiece */}
       <section className="flex-1 flex flex-col items-center gap-4">
-        <div
-          className="w-full relative glow border border-[#00F0FF22] rounded-sm overflow-hidden"
-          style={{ height: '70vh' }}
-        >
-          <iframe
-            src="https://play.ultragresion.com/play"
-            className="w-full h-full"
-            title="Command Center — Ultragresion"
-            allow="fullscreen"
-          />
+        <p className="text-[10px] tracking-widest text-[#00F0FF] opacity-60 mb-2 self-start">
+          // COMMAND CENTER — LIVE
+        </p>
+
+        <div className="w-full flex gap-4 items-stretch">
+          {/* iframe wrapper */}
+          <div
+            className="flex-1 relative glow border border-[#00F0FF22] rounded-sm overflow-hidden"
+            style={{ height: '70vh' }}
+          >
+            <iframe
+              src="https://play.ultragresion.com/play"
+              className="w-full h-full"
+              title="Command Center — Ultragresion"
+              allow="fullscreen"
+            />
+            {/* scanline overlay */}
+            <div className="scanlines" />
+          </div>
+
+          {/* Social strip — desktop only */}
+          <div className="hidden md:flex flex-col items-center justify-center gap-5 pl-2">
+            {SOCIAL.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={s.label}
+                className="text-xs text-slate-500 hover:text-[#00F0FF] transition-colors"
+              >
+                {s.icon}
+              </a>
+            ))}
+          </div>
         </div>
+
         <a
           href="https://play.ultragresion.com/play"
           target="_blank"
@@ -63,18 +74,9 @@ export default function HomePage() {
 
       <div className="accent-line mt-8 mb-6" />
 
-      {/* Bottom nav */}
-      <footer className="flex gap-8 text-xs text-slate-500">
-        <Link href="/blog" className="hover:text-[#00F0FF] transition-colors tracking-widest">→ BLOG</Link>
-        <Link href="/projects" className="hover:text-[#00F0FF] transition-colors tracking-widest">→ PROYECTOS</Link>
-        <a
-          href="https://soundcloud.com/ultragresion/tracks"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-[#00F0FF] transition-colors tracking-widest"
-        >
-          → SONIDO
-        </a>
+      {/* Footer status bar */}
+      <footer className="text-center text-[10px] text-slate-600">
+        © {year} Ultragresion · Medellín
       </footer>
     </main>
   );

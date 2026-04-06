@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { JetBrains_Mono } from 'next/font/google';
+import { Nav } from '@/components/Nav';
 import './globals.css';
 
 const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' });
@@ -18,7 +19,10 @@ export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="es" className="dark">
       <body className={`${mono.variable} font-mono bg-[#050505] text-white antialiased`}>
-        {props.children}
+        <Nav />
+        <div className="pt-[44px]">
+          {props.children}
+        </div>
       </body>
     </html>
   );

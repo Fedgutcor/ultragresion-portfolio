@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -23,10 +22,6 @@ const STACK = [
 export default function AboutPage() {
   return (
     <main className="min-h-screen px-6 py-8 max-w-3xl mx-auto">
-      <Link href="/" className="text-xs text-slate-500 hover:text-[#00F0FF] tracking-widest mb-8 block">
-        ← HOME
-      </Link>
-
       <div className="accent-line mb-10" />
 
       {/* IDENTIDAD */}

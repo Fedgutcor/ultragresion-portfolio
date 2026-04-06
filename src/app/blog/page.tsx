@@ -13,7 +13,6 @@ export default function BlogPage() {
   const posts = getAllPosts();
   return (
     <main className="min-h-screen px-6 py-8 max-w-3xl mx-auto">
-      <Link href="/" className="text-xs text-slate-500 hover:text-[#00F0FF] tracking-widest mb-8 block">← HOME</Link>
       <h1 className="text-xl font-bold tracking-widest uppercase mb-2">Feed</h1>
       <div className="accent-line mb-8" />
       <ul className="flex flex-col gap-6">
