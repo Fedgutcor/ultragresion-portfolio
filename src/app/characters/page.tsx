@@ -76,6 +76,34 @@ const CHARACTERS = [
     lore: 'Interpreta intención. Convierte lenguaje en acción ejecutable.',
     accent: '#0b4978',
   },
+  {
+    id: 'wolf2',
+    name: 'Shadow Wolf',
+    title: 'Stealth Ops — Process Monitor',
+    lore: 'Opera en silencio. Ve todo sin ser visto.',
+    accent: '#2a4a3a',
+  },
+  {
+    id: 'beaver',
+    name: 'Iron Beaver',
+    title: 'Health & Infrastructure',
+    lore: 'Construye lo que otros usan. Sin él, nada se sostiene.',
+    accent: '#e87c2a',
+  },
+  {
+    id: 'seal2',
+    name: 'Market Seal',
+    title: 'Cost Tracker — Budget Watchdog',
+    lore: 'Ningún token se gasta sin que él lo registre.',
+    accent: '#3a7a8a',
+  },
+  {
+    id: 'owl2',
+    name: 'Crystal Owl',
+    title: 'Arcane Knowledge Daemon',
+    lore: 'Custodia el conocimiento antiguo. Sus cristales no mienten.',
+    accent: '#4a9a6a',
+  },
 ];
 
 export default function CharactersPage() {

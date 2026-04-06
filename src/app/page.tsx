@@ -37,7 +37,7 @@ export default function HomePage() {
           className="w-full block group glow border border-[#00F0FF22] hover:border-[#00F0FF55] transition-all overflow-hidden rounded-sm"
         >
           <img
-            src="/brand/og_banner.png"
+            src="/brand/splashart.png"
             alt="Command Center"
             className="w-full object-cover"
             style={{ maxHeight: '60vh' }}
